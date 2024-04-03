@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\SertifikatModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\KaryawanModel;
+use Dompdf\Dompdf;
 
 class SertifikatController extends BaseController
 {
@@ -69,7 +70,7 @@ class SertifikatController extends BaseController
             $dataToAdd = [
                 'id_emp' => $this->request->getPost('id_emp'),
                 'sertifikat' => $this->request->getPost('sertifikat'),
-                'file' => isset ($fileName) ? $fileName : null,
+                'file' => isset($fileName) ? $fileName : null,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ];
@@ -106,7 +107,6 @@ class SertifikatController extends BaseController
     {
         $sertifikatModel = new SertifikatModel();
 
-        $empSertifikat = $this->request->getPost('id_emp');
         $namaSertifikat = $this->request->getPost('sertifikat');
         $fileSertifikat = $this->request->getFile('file');
 
@@ -115,13 +115,11 @@ class SertifikatController extends BaseController
             $fileSertifikat->move(ROOTPATH . 'public/uploads/sertifikat', $filename);
 
             $updatedData = [
-                'id_emp' => $empSertifikat,
                 'sertifikat' => $namaSertifikat,
                 'file' => $filename,
             ];
         } else {
             $updatedData = [
-                'id_emp' => $empSertifikat,
                 'sertifikat' => $namaSertifikat,
             ];
         }
@@ -160,6 +158,21 @@ class SertifikatController extends BaseController
         } else {
             session()->setFlashdata("error", "Data gagal dihapus.");
             return redirect()->back();
+        }
+    }
+
+    public function viewPdf($fileName)
+    {
+        $filePath = ROOTPATH . 'public/uploads/sertifikat/' . $fileName;
+        $dompdf = new Dompdf();
+
+        if (file_exists($filePath)) {
+            $dompdf->loadHtml($filePath);
+            $dompdf->setPaper('A4', 'landscape');
+            $dompdf->render();
+            $dompdf->stream($fileName);
+        } else {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('File not found: ' . $fileName);
         }
     }
 }

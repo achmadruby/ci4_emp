@@ -40,19 +40,6 @@
         <form action="<?= site_url('/sertifikat/update/' . $sertifikat['sertifikat']['id']) ?>" method="POST"
             enctype="multipart/form-data">
             <div class="form-group row">
-                <label class="col-sm-12 col-md-1 col-form-label">Nama Karyawan</label>
-                <div class="col-sm-12 col-md-10">
-                    <select class="custom-select col-12" name="id_emp" required>
-                        <option selected disabled>Pilih Karyawan</option>
-                        <?php foreach ($emp['emp'] as $emp): ?>
-                            <option value="<?= $emp['id'] ?>" <?= ($sertifikat['sertifikat']['id_emp'] == $emp['id']) ? 'selected' : ''; ?>>
-                                <?= $emp['nama'] ?>
-                            </option>
-                        <?php endforeach ?>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group row">
                 <label class="col-sm-12 col-md-1 col-form-label">Judul Sertifikat</label>
                 <div class="col-sm-12 col-md-8">
                     <input class="form-control" type="text" name="sertifikat"

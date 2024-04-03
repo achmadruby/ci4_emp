@@ -35,6 +35,7 @@
                         <th>No</th>
                         <th class="table-plus datatable-nosort">Nama</th>
                         <th>Tanggal Resign</th>
+                        <th>Diinputkan oleh</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -61,6 +62,8 @@
                                     class="btn btn-warning btn-sm"><i class="icon-copy dw dw-edit2"></i></a>
                                 <a href="<?= site_url('/resign/delete/' . $resign['resignid']) ?>"
                                     class="btn btn-danger btn-sm"><i class="icon-copy dw dw-delete-3"></i></a>
+                                <a href="<?= site_url('/resign/detail/' . $resign['id_emp']) ?>"
+                                    class="btn btn-primary btn-sm"><i class="icon-copy dw dw-user-11"></i></a>
                             </td>
                         </tr>
                     <?php endforeach ?>

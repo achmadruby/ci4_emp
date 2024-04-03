@@ -57,4 +57,12 @@ class SertifikatModel extends Model
             ->join('employees', 'employees.id = sertifikat.id_emp')
             ->findAll();
     }
+
+    public function getSertifikat($id)
+    {
+        return $this->db->table('sertifikat')
+            ->where('id_emp', $id)
+            ->get()
+            ->getResultArray();
+    }
 }

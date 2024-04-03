@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\ResignModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\KaryawanModel;
+use App\Models\SertifikatModel;
 
 class ResignController extends BaseController
 {
@@ -159,5 +160,42 @@ class ResignController extends BaseController
             session()->setFlashdata("error", "Data gagal dihapus.");
             return redirect()->back();
         }
+    }
+
+    public function detail($id)
+    {
+        $title['title'] = "Data Resign - Detail";
+        $empModel = new KaryawanModel();
+        $emp['emp'] = $empModel->getKaryawanById($id);
+
+        $departmentId = $emp['emp']['id_dept'];
+        $departmentData = $empModel->getDepartmentById($departmentId);
+
+        $statusId = $emp['emp']['id_status'];
+        $statusData = $empModel->getStatusById($statusId);
+
+        $pendidikanId = $emp['emp']['id_pendidikan'];
+        $pendidikanData = $empModel->getPendidikanById($pendidikanId);
+
+        $serifikatModel = new SertifikatModel();
+        $SertifikatData = $serifikatModel->getSertifikat($id);
+
+        $resignModel = new ResignModel();
+        $resignDateData = $resignModel->getResignDateById($id);
+
+        $employeModel = new KaryawanModel();
+        $id_emp = session()->get('id_emp');
+        $employeeData = $employeModel->select('nama, image')->find($id_emp);
+
+        return view('pages/resign/detail', [
+            'title' => $title,
+            'emp' => $emp,
+            'departmentData' => $departmentData,
+            'statusData' => $statusData,
+            'pendidikanData' => $pendidikanData,
+            'employeeData' => $employeeData,
+            'SertifikatData' => $SertifikatData,
+            'resignDateData' => $resignDateData,
+        ]);
     }
 }

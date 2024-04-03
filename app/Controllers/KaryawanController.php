@@ -7,6 +7,7 @@ use App\Models\DepartementModel;
 use App\Models\KaryawanModel;
 use App\Models\PendidikanModel;
 use App\Models\StatusModel;
+use App\Models\SertifikatModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class KaryawanController extends BaseController
@@ -30,7 +31,7 @@ class KaryawanController extends BaseController
     {
         $title['title'] = "Data Karyawan";
         $empModel = new KaryawanModel();
-        $emp['emp'] = $empModel->getEmployees();
+        $emp['emp'] = $empModel->showActiveEmployees();
         $employeModel = new KaryawanModel();
         $id_emp = session()->get('id_emp');
         $employeeData = $employeModel->select('nama, image')->find($id_emp);
@@ -126,7 +127,7 @@ class KaryawanController extends BaseController
                 'no_hp' => $this->request->getPost('no_hp'),
                 'email' => $this->request->getPost('email'),
                 'jurusan' => $this->request->getPost('jurusan'),
-                'image' => isset ($imageName) ? $imageName : null,
+                'image' => isset($imageName) ? $imageName : null,
                 'created_by' => $employeeName,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -194,7 +195,7 @@ class KaryawanController extends BaseController
                 'no_hp' => $no_hp,
                 'email' => $email,
                 'jurusan' => $jurusan,
-                'images' => $filename,
+                'image' => $filename,
             ];
         } else {
             $updatedData = [
@@ -271,9 +272,21 @@ class KaryawanController extends BaseController
         $pendidikanId = $emp['emp']['id_pendidikan'];
         $pendidikanData = $empModel->getPendidikanById($pendidikanId);
 
+        $serifikatModel = new SertifikatModel();
+        $SertifikatData = $serifikatModel->getSertifikat($id);
+
         $employeModel = new KaryawanModel();
         $id_emp = session()->get('id_emp');
         $employeeData = $employeModel->select('nama, image')->find($id_emp);
-        return view('pages/emp/detail', ['title' => $title, 'emp' => $emp, 'departmentData' => $departmentData, 'statusData' => $statusData, 'pendidikanData' => $pendidikanData, 'employeeData' => $employeeData]);
+
+        return view('pages/emp/detail', [
+            'title' => $title,
+            'emp' => $emp,
+            'departmentData' => $departmentData,
+            'statusData' => $statusData,
+            'pendidikanData' => $pendidikanData,
+            'employeeData' => $employeeData,
+            'SertifikatData' => $SertifikatData,
+        ]);
     }
 }

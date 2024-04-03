@@ -117,6 +117,25 @@
                 </div>
             </div>
         </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30">
+            <div class="pd-20 card-box height-80-p">
+                <div class="profile-info">
+                    <h5 class="mb-20 h5 text-blue">Sertifikat</h5>
+                    <?php foreach ($SertifikatData as $sertifikat): ?>
+                        <ul class="mb-10">
+                            <li>
+                                <div class="task-name text-blue"><i class="icon-copy ion-clipboard"></i>
+                                    <?= $sertifikat['sertifikat']; ?>
+                                </div>
+                                <a href="<?= site_url('/sertifikat/view/' . $sertifikat['file']); ?>" target="_blank">
+                                    Lihat Sertifikat <i class="icon-copy ion-share"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <?= $this->endSection(); ?>

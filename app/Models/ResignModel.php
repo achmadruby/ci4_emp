@@ -58,6 +58,14 @@ class ResignModel extends Model
             ->findAll();
     }
 
+    public function getResignDateById($id)
+    {
+        return $this->db->table('resign')
+            ->where('id_emp', $id)
+            ->get()
+            ->getRowArray();
+    }
+
     public function countResign()
     {
         return $this->countAll();

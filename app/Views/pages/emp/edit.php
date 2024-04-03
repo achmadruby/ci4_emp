@@ -166,17 +166,7 @@
                         value="<?= $emp['emp']['join_date'] ?>">
                 </div>
             </div>
-            <div class="form-group row">
-                <label class="col-sm-12 col-md-1 col-form-label">Active</label>
-                <div class="col-sm-12 col-md-10">
-                    <select class="custom-select col-12" name="active">
-                        <option selected disabled>Pilih Status Aktif</option>
-                        <option value="YES" <?= ($emp['emp']['active'] == 'YES') ? 'selected' : ''; ?>>YES
-                        </option>
-                        <option value="NO" <?= ($emp['emp']['active'] == 'NO') ? 'selected' : ''; ?>>NO</option>
-                    </select>
-                </div>
-            </div>
+            <input class="form-control" type="hidden" name="active" value="<?= $emp['emp']['active'] ?>">
             <div class="form-group row">
                 <label class="col-sm-12 col-md-1 col-form-label">No HP</label>
                 <div class="col-sm-12 col-md-10">
@@ -198,7 +188,7 @@
             <div class="form-group row">
                 <label class="col-sm-12 col-md-1 col-form-label">Upload Gambar</label>
                 <div class="col-sm-12 col-md-10">
-                    <input class="form-control" type="file" name="image" accept="image/*" value="<?= $emp['emp']['image'] ?>">
+                    <input class="form-control" type="file" name="image" accept="image/*">
                 </div>
             </div>
             <button class="btn btn-primary" type="submit">Submit</button>

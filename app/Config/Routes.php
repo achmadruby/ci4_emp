@@ -28,6 +28,7 @@ $routes->group('sertifikat', function ($routes) {
     $routes->get('edit/(:num)', 'SertifikatController::edit/$1');
     $routes->post('update/(:num)', 'SertifikatController::update/$1');
     $routes->get('delete/(:num)', 'SertifikatController::delete/$1');
+    $routes->get('view/(:any)', 'SertifikatController::viewPdf/$1');
 });
 
 $routes->group('resign', function ($routes) {
@@ -37,6 +38,7 @@ $routes->group('resign', function ($routes) {
     $routes->get('edit/(:num)', 'ResignController::edit/$1');
     $routes->post('update/(:num)', 'ResignController::update/$1');
     $routes->get('delete/(:num)', 'ResignController::delete/$1');
+    $routes->get('detail/(:num)', 'ResignController::detail/$1');
 });
 
 $routes->group('user', function ($routes) {

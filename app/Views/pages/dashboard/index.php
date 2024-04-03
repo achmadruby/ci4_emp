@@ -24,7 +24,9 @@
         </div>
         <div class="col-md-8">
             <h4 class="font-20 weight-500 mb-10 text-capitalize">
-                Welcome back <div class="weight-600 font-30 text-blue">Johnny Brown!</div>
+                Selamat Datang <div class="weight-600 font-30 text-blue">
+                    <?= $employeeData['nama'] ?>!
+                </div>
             </h4>
             <p class="font-18 max-width-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde hic non
                 repellendus debitis iure, doloremque assumenda. Autem modi, corrupti, nobis ea iure fugiat, veniam non
@@ -39,7 +41,7 @@
                 <input type="text" class="knob dial1" value="<?= $jumlahKaryawan ?>" data-width="120" data-height="120"
                     data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#1b00ff"
                     data-angleOffset="180" readonly>
-                <h5 class="text-blue padding-top-10 h5">Jumlah Karyawan</h5>
+                <h5 class="text-blue padding-top-10 h5">Jumlah Karyawan Aktif</h5>
                 <span class="d-block">
                     <?= $jumlahKaryawan ?> Karyawan
                 </span>
@@ -52,7 +54,7 @@
                 <input type="text" class="knob dial1" value="<?= $jumlahKaryawanNonaktif ?>" data-width="120"
                     data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff"
                     data-fgColor="#00e091" data-angleOffset="180" readonly>
-                <h5 class="text-green padding-top-10 h5">Jumlah Karyawan</h5>
+                <h5 class="text-green padding-top-10 h5">Jumlah Karyawan Nonaktif</h5>
                 <span class="d-block">
                     <?= $jumlahKaryawanNonaktif ?> Karyawan
                 </span>

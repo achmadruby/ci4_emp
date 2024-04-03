@@ -63,6 +63,16 @@ class KaryawanModel extends Model
     protected $beforeDelete = [];
     protected $afterDelete = [];
 
+    public function showActiveEmployees()
+    {
+        return $this->select('employees.*, departement.*, status.*, pendidikan.*, employees.id as empid')
+            ->join('departement', 'departement.id = employees.id_dept')
+            ->join('status', 'status.id = employees.id_status')
+            ->join('pendidikan', 'pendidikan.id = employees.id_pendidikan')
+            ->where('active', 'YES')
+            ->findAll();
+    }
+
     public function getKaryawanById($id)
     {
         return $this->find($id);
@@ -105,6 +115,5 @@ class KaryawanModel extends Model
     {
         return $this->countAll();
     }
-
 
 }

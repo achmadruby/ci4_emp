@@ -98,21 +98,19 @@ class UserController extends BaseController
         $userModel = new UserModel();
 
         $validationRules = [
-            'id_emp' => 'required|integer',
             'username' => 'required|max_length[255]',
             'level' => 'required|in_list[SUPERADMIN,ADMIN]',
         ];
 
         if ($this->validate($validationRules)) {
             $dataToUpdate = [
-                'id_emp' => $this->request->getPost('id_emp'),
                 'username' => $this->request->getPost('username'),
                 'level' => $this->request->getPost('level'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ];
 
             $password = $this->request->getPost('password');
-            if (!empty ($password)) {
+            if (!empty($password)) {
                 $dataToUpdate['password'] = password_hash($password, PASSWORD_BCRYPT);
             }
 

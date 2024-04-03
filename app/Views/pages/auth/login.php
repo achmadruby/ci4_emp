@@ -9,9 +9,9 @@
     </title>
 
     <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="vendors/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="vendors/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('main/src/images/logo-pek.png') ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('main/src/images/logo-pek.png') ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('main/src/images/logo-pek.png') ?>">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -40,7 +40,8 @@
         <div class="container-fluid d-flex justify-content-between align-items-center">
             <div class="brand-logo">
                 <a href="login.html">
-                    <img src="<?= base_url('main/vendors/images/deskapp-logo.svg') ?>" alt="">
+                    <img src="<?= base_url('main/src/images/logo-pek.png') ?>" alt="" class="light-logo" height="80"
+                        width="80" style="margin-left:50px;">
                 </a>
             </div>
         </div>
@@ -54,7 +55,7 @@
                 <div class="col-md-6 col-lg-5">
                     <div class="login-box bg-white box-shadow border-radius-10">
                         <div class="login-title">
-                            <h2 class="text-center text-primary">Login To DeskApp</h2>
+                            <h2 class="text-center text-primary">Login To SIKA</h2>
                         </div>
                         <form action="<?= site_url('/authprocess') ?>" method="POST">
                             <!-- <form> -->

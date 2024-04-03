@@ -155,16 +155,7 @@
                 <input class="form-control" name="join_date" type="date" required>
             </div>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-12 col-md-1 col-form-label">Active</label>
-            <div class="col-sm-12 col-md-10">
-                <select class="custom-select col-12" name="active">
-                    <option selected disabled>Pilih Status Aktif</option>
-                    <option value="YES">YES</option>
-                    <option value="NO">NO</option>
-                </select>
-            </div>
-        </div>
+        <input class="form-control" name="active" type="hidden" value="YES">
         <div class="form-group row">
             <label class="col-sm-12 col-md-1 col-form-label">No HP</label>
             <div class="col-sm-12 col-md-10">
