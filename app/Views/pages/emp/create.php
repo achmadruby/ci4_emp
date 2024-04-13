@@ -159,9 +159,7 @@
             <label class="col-sm-12 col-md-1 col-form-label">Active</label>
             <div class="col-sm-12 col-md-10">
                 <select class="custom-select col-12" name="active">
-                    <option selected disabled>Pilih Status Aktif</option>
-                    <option value="YES">YES</option>
-                    <option value="NO">NO</option>
+                    <option value="YES" selected>Aktif</option>
                 </select>
             </div>
         </div>

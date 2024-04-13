@@ -35,6 +35,7 @@
                         <th>No</th>
                         <th class="table-plus datatable-nosort">Nama</th>
                         <th>Tanggal Resign</th>
+                        <th>Diinputkan Oleh</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
