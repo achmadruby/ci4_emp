@@ -17,20 +17,20 @@
         </div>
     </div>
 </div>
-<div class="card-box pd-20 height-100-p mb-30">
+<div class="card-box pd-20 height-50-p mb-30">
     <div class="row align-items-center">
         <div class="col-md-4">
-            <img src="<?= base_url('main/vendors/images/banner-img.png') ?>" alt="">
+            <img src="<?= base_url('main/vendors/images/LOGO OMBE.png') ?>" alt="">
         </div>
         <div class="col-md-8">
             <h4 class="font-20 weight-500 mb-10 text-capitalize">
-                Selamat Datang <div class="weight-600 font-30 text-blue">
-                    <?= $employeeData['nama'] ?>!
-                </div>
+                <div class="weight-600 font-30 text-blue">Welcome To OMBE!</div>
             </h4>
-            <p class="font-18 max-width-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde hic non
-                repellendus debitis iure, doloremque assumenda. Autem modi, corrupti, nobis ea iure fugiat, veniam non
-                quaerat mollitia animi error corporis.</p>
+            <p class="font-18 max-width-600">Ombe adalah lebih dari sekadar penyedia air minum; ia adalah jantung dari
+                kehidupan sehari-hari yang memberi makan, menyegarkan, dan memberdayakan masyarakat. Dengan komitmen
+                yang tak tergoyahkan terhadap kualitas, keberlanjutan, dan pelayanan pelanggan yang luar biasa, Ombe
+                menjadi mitra terpercaya bagi individu, keluarga, dan bisnis dalam memenuhi kebutuhan hidrasi mereka.
+            </p>
         </div>
     </div>
 </div>
