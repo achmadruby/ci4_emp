@@ -113,7 +113,9 @@ class KaryawanModel extends Model
 
     public function countEmployees()
     {
-        return $this->countAll();
+        return $this->db->table('employees')
+            ->where('active', 'YES')
+            ->countAllResults();
     }
 
 }

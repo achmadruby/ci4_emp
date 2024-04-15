@@ -38,7 +38,7 @@ class ResignController extends BaseController
     {
         $title['title'] = "Data Resign - Tambah";
         $empModel = new KaryawanModel();
-        $emp['emp'] = $empModel->findAll();
+        $emp['emp'] = $empModel->showActiveEmployees();
         $employeModel = new KaryawanModel();
         $id_emp = session()->get('id_emp');
         $employeeData = $employeModel->select('nama, image')->find($id_emp);
