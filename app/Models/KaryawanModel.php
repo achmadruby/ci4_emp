@@ -87,6 +87,13 @@ class KaryawanModel extends Model
             ->findAll();
     }
 
+    public function getActiveEmployees()
+    {
+        return $this->select('employees.*')
+            ->where('active', 'Yes')
+            ->findAll();
+    }
+
     public function getDepartmentById($id_dept)
     {
         return $this->db->table('departement')

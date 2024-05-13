@@ -7,6 +7,7 @@ use App\Models\SertifikatModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\KaryawanModel;
 use Dompdf\Dompdf;
+use setasign\Fpdi\Fpdi;
 
 class SertifikatController extends BaseController
 {
@@ -40,7 +41,7 @@ class SertifikatController extends BaseController
     {
         $title['title'] = "Data Sertifikat - Tambah";
         $empModel = new KaryawanModel();
-        $emp['emp'] = $empModel->findAll();
+        $emp['emp'] = $empModel->getActiveEmployees();
         $employeModel = new KaryawanModel();
         $id_emp = session()->get('id_emp');
         $employeeData = $employeModel->select('nama, image')->find($id_emp);
@@ -167,7 +168,7 @@ class SertifikatController extends BaseController
         $dompdf = new Dompdf();
 
         if (file_exists($filePath)) {
-            $dompdf->loadHtml($filePath);
+            $dompdf->loadHtml($fileName);
             $dompdf->setPaper('A4', 'landscape');
             $dompdf->render();
             $dompdf->stream($fileName);
@@ -175,4 +176,17 @@ class SertifikatController extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException('File not found: ' . $fileName);
         }
     }
+
+    // public function viewPdf($fileName)
+    // {
+    //     $filePath = ROOTPATH . 'public/uploads/sertifikat/' . $fileName;
+
+    //     $pdf = new Fpdi();
+    //     $pdf->AddPage();
+    //     $pdf->setSourceFile($fileName);
+    //     $tplId = $pdf->importPage(1);
+    //     $pdf->useTemplate($tplId, 10, 10, 100);
+
+    //     $pdf->Output();
+    // }
 }

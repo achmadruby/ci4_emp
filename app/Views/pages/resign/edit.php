@@ -38,19 +38,7 @@
         </div>
         <br>
         <form action="<?= site_url('/resign/update/' . $resign['resign']['id']) ?>" method="POST">
-            <div class="form-group row">
-                <label class="col-sm-12 col-md-1 col-form-label">Nama Karyawan</label>
-                <div class="col-sm-12 col-md-10">
-                    <select class="custom-select col-12" name="id_emp">
-                        <option selected disabled>Pilih Karyawan</option>
-                        <?php foreach ($emp['emp'] as $emp): ?>
-                            <option value="<?= $emp['id'] ?>" <?= ($resign['resign']['id_emp'] == $emp['id']) ? 'selected' : ''; ?>>
-                                <?= $emp['nama'] ?>
-                            </option>
-                        <?php endforeach ?>
-                    </select>
-                </div>
-            </div>
+            <input class="form-control" type="hidden" name="id_emp" value="<?= $resign['resign']['id_emp'] ?>">
             <div class="form-group row">
                 <label class="col-sm-12 col-md-1 col-form-label">Tanggal Resign</label>
                 <div class="col-sm-12 col-md-8">
